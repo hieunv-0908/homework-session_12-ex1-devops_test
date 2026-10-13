@@ -44,7 +44,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: serveo.net
-          port: 32193
+          port: 32645
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
