@@ -23,6 +23,12 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Build JAR with Gradle
+        run: ./gradlew bootJar -x test
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -44,7 +50,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: serveo.net
-          port: 32645
+          port: 41516
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
